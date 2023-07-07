@@ -1,23 +1,33 @@
 package com.project.horus_task;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public class Wall implements Structure{
-    private List<Block> blocks;
+public class Wall implements Structure {
+    private final List<Block> blocks = new ArrayList<>();
+
+    public void addBlocks(Collection<Block> blockCollection) {
+        blocks.addAll(blockCollection);
+    }
+
+    public void addCompositeBlocks(CompositeBlock compositeBlock) {
+        blocks.addAll(compositeBlock.getBlocks());
+    }
 
     @Override
     public Optional<Block> findBlockByColor(String color) {
-        return Optional.empty();
+        return blocks.stream().filter(block -> block.getColor().equalsIgnoreCase(color)).findAny();
     }
 
     @Override
     public List<Block> findBlocksByMaterial(String material) {
-        return null;
+        return blocks.stream().filter(block -> block.getMaterial().equalsIgnoreCase(material)).toList();
     }
 
     @Override
     public int count() {
-        return 0;
+        return blocks.size();
     }
 }

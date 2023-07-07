@@ -1,6 +1,5 @@
 package com.project.horus_task;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,14 +8,6 @@ public class Wall implements Structure {
 
     public Wall(CompositeBlock compositeBlock) {
         this.blocks = compositeBlock.getBlocks();
-    }
-
-    public void addBlocks(Collection<Block> blockCollection) {
-        blocks.addAll(blockCollection);
-    }
-
-    public void addCompositeBlocks(CompositeBlock compositeBlock) {
-        blocks.addAll(compositeBlock.getBlocks());
     }
 
     @Override

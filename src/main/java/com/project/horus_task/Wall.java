@@ -1,12 +1,15 @@
 package com.project.horus_task;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
 public class Wall implements Structure {
-    private final List<Block> blocks = new ArrayList<>();
+    private final List<Block> blocks;
+
+    public Wall(CompositeBlock compositeBlock) {
+        this.blocks = compositeBlock.getBlocks();
+    }
 
     public void addBlocks(Collection<Block> blockCollection) {
         blocks.addAll(blockCollection);
